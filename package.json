@@ -1,0 +1,22 @@
+{
+  "name": "oura-sheets",
+  "version": "0.0.1",
+  "description": "Sync data from Oura Ring to Google Sheets",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Connor-Knabe/oura-sheets.git"
+  },
+  "author": "Connor Knabe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Connor-Knabe/oura-sheets/issues"
+  },
+  "homepage": "https://github.com/Connor-Knabe/oura-sheets#readme",
+  "dependencies": {
+    "oura": "^0.6.2"
+  }
+}
