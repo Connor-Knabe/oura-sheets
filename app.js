@@ -31,6 +31,8 @@ const redirect = url.parse(options.redirectUri);
 const app = express();
 const port = process.env.PORT || redirect.port;
 
+console.log(redirect);
+
 const host = redirect.host;
 const proto = redirect.protocol;
 const startAddress = proto + '//' + host + '/beginAuthorization';
@@ -67,10 +69,26 @@ app.get(redirect.pathname, function(req, res) {
 });
 
 // get access token, refres if needed,
-app.get('/getData/:start/:end', function(req, res) {
+app.get('/getReadyData/:start/:end', function(req, res) {
 	const token = authConfig.access_token;
 	const client = new oura.Client(token);
 	client.readiness(req.param.start, req.param.end).then(function(readiness) {
+		res.json(readiness);
+	});
+});
+
+app.get('/getActivityData/:start/:end', function(req, res) {
+	const token = authConfig.access_token;
+	const client = new oura.Client(token);
+	client.activity(req.param.start, req.param.end).then(function(readiness) {
+		res.json(readiness);
+	});
+});
+
+app.get('/getSleepData/:start/:end', function(req, res) {
+	const token = authConfig.access_token;
+	const client = new oura.Client(token);
+	client.sleep(req.param.start, req.param.end).then(function(readiness) {
 		res.json(readiness);
 	});
 });
